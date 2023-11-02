@@ -3,12 +3,12 @@ FROM python:3.13-rc-slim
 RUN mkdir docker
 WORKDIR docker
 
-ADD requirements.txt /docker/
+COPY requirements.txt /docker/
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-ADD . /docker/
+COPY . /docker/
 
 
 CMD python manage.py migrate \
